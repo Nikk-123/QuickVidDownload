@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Downloader</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Download Video or Audio</h1>
+    <form id="download-form" method="post">
+        <label for="video_url">Video URL:</label>
+        <input type="text" id="video_url" name="video_url" required>
+        <br><br>
+        <label for="download_type">Download Type:</label>
+        <select id="download_type" name="download_type">
+            <option value="video">Video (with audio)</option>
+            <option value="audio">Audio (MP3)</option>
+        </select>
+        <br><br>
+        <button type="submit">Download</button>
+    </form>
+
+    <script>
+        $(document).ready(function() {
+            $('#download-form').submit(function(event) {
+                event.preventDefault(); // Prevent default form submission
+
+                var videoUrl = $('#video_url').val();
+                var downloadType = $('#download_type').val();
+
+                $.ajax({
+                    url: '/',
+                    type: 'POST',
+                    data: { video_url: videoUrl, download_type: downloadType },
+                    success: function(response) {
+                        if (response.success) {
+                            alert(response.message);
+                        } else {
+                            alert('Error: ' + response.error);
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        alert('An error occurred: ' + error);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

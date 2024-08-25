@@ -1,4 +1,4 @@
-# Video Downloader
+# QuickVidDownload
 
 A simple web application built with Flask for downloading videos and audio from various sources including YouTube, Facebook, and Instagram. The application provides an easy-to-use interface to download videos or audio files and notifies users with a popup once the download is complete.
 
@@ -27,7 +27,7 @@ A simple web application built with Flask for downloading videos and audio from 
 1. **Clone the Repository**
 
    ```bash
-   git clone https://github.com/your-username/video-downloader.git
+   https://github.com/Nikk-123/QuickVidDownload.git
    cd video-downloader
    ```
 
